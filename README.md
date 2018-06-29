@@ -38,9 +38,11 @@ else:
 ## Instructions
 
 Download the proxy:
+
 `$ wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy`
 
 Make the proxy executable:
+
 `$ chmod +x cloud_sql_proxy`
 
 If you created a new Google Cloud SQL instance for this project, make sure to create a database per the `CLOUDSQL_DATABASE` variable in the `config.py` file.
@@ -50,12 +52,16 @@ Create a service account in the GCP console with permissions to access your Goog
 Run the proxy with the command: `$ GOOGLE_APPLICATION_CREDENTIALS=key.json ./cloud_sql_proxy -instances="<CLOUDSQL_CONNECTION_NAME>"=tcp:3306` where `CLOUDSQL_CONNECTION_NAME` is your instance's connection name (found in the GCP console.)
 
 In another terminal window within this project's directory, create a python3 virtual environment. Activate it and install the required dependencies to this project.
-`$ python3 -m venv venv`
-`$ . venv/bin/activate`
-`$ pip install -U pip`
-`$ pip install -r requirements.txt`
+
+```
+$ python3 -m venv venv
+$ . venv/bin/activate
+$ pip install -U pip
+$ pip install -r requirements.txt
+```
 
 Run this project locally.
+
 `$ python main.py`
 
 
