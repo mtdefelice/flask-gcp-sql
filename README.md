@@ -49,7 +49,11 @@ If you created a new Google Cloud SQL instance for this project, make sure to cr
 
 Create a service account in the GCP console with permissions to access your Google Cloud SQL instance. Download it/rename it to `key.json`.
 
-Run the proxy with the command: `$ GOOGLE_APPLICATION_CREDENTIALS=key.json ./cloud_sql_proxy -instances="<CLOUDSQL_CONNECTION_NAME>"=tcp:3306` where `CLOUDSQL_CONNECTION_NAME` is your instance's connection name (found in the GCP console.)
+Run the proxy with the command:
+
+`$ GOOGLE_APPLICATION_CREDENTIALS=key.json ./cloud_sql_proxy -instances="<CLOUDSQL_CONNECTION_NAME>"=tcp:3306`
+
+... where `CLOUDSQL_CONNECTION_NAME` is your instance's connection name (found in the GCP console.)
 
 In another terminal window within this project's directory, create a python3 virtual environment. Activate it and install the required dependencies to this project.
 
