@@ -37,24 +37,3 @@ class Child (db.Model):
     def __repr__ (self):
         return '<Child {}>'.format (self.nam)
 
-
-def _create_database ():
-    """
-    Run this script directly before deploying to production to create all of the necessary tables.
-    """
-
-    import config
-    from flask import Flask
-
-    app = Flask (__name__)
-    app.config.from_object (config)
-
-    db.init_app (app)
-
-    with app.app_context ():
-        db.drop_all ()
-        db.create_all ()
-
-if __name__ == '__main__':
-    _create_database ()
-
