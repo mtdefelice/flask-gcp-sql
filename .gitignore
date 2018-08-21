@@ -3,3 +3,4 @@ config.py
 key.json
 __pycache__
 cloud_sql_proxy
+db.sqlite3

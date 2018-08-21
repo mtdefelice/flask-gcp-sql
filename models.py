@@ -1,7 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy
+from main import db
 import json
-
-db = SQLAlchemy ()
 
 class Parent (db.Model):
     pid = db.Column (db.Integer, primary_key = True)
