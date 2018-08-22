@@ -1,13 +1,6 @@
-import config
 import logging
-from flask import Flask, json, abort
-from flask_sqlalchemy import SQLAlchemy
-
-app = Flask (__name__)
-app.config.from_object (config)
-
-db = SQLAlchemy (app)
-import models
+from flask import abort, json
+from app import app, db, models
 
 @app.route ('/', methods = ['GET'])
 def index ():
@@ -30,9 +23,21 @@ def index ():
             db.session.rollback ()
             abort (500, 'Error. Something bad happened.')
 
-if __name__ == '__main__':
-    app.run (
-        host = '127.0.0.1',
-        port = 8080,
-        debug = True,
-    )
+
+@app.route ('/del', methods = ['GET'])
+def dd ():
+    p = models.Parent.query.first ()
+    if p:
+        try:
+            db.session.delete (p)
+            db.session.commit ()
+            return '''Done.'''
+
+        except Exception as e:
+            print (e)
+            logging.error (e.__class__.__name__)
+            db.session.rollback ()
+            abort (500, 'Error. Something bad happened.')
+    else:
+        return '''N/A'''
+

@@ -1,12 +1,14 @@
-from main import db
+from app import db
 import json
+# import datetime
+# 'tim': int ((self.tim - datetime.datetime (1970, 1, 1)).total_seconds ()),
 
 class Parent (db.Model):
     pid = db.Column (db.Integer, primary_key = True)
     ema = db.Column (db.String (255), nullable = False, unique = True)
     nam = db.Column (db.String (255), nullable = False)
 
-    children = db.relationship ('Child', backref = 'parent', lazy = True)
+    children = db.relationship ('Child', backref = 'parent', lazy = True, cascade = 'all, delete-orphan')
 
     def serialize (self):
         return {
