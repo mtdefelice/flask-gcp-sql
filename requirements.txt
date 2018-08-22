@@ -1,7 +1,7 @@
 asn1crypto==0.24.0
 cffi==1.11.5
 click==6.7
-cryptography==2.2.2
+cryptography==2.3.1
 Flask==1.0.2
 Flask-SQLAlchemy==2.3.2
 gunicorn==19.8.1
