@@ -66,6 +66,6 @@ $ pip install -r requirements.txt
 
 Run this project locally.
 
-`$ python main.py`
+`$ python run.py`
 
 
